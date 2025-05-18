@@ -73,16 +73,25 @@ impl Client {
     }
 
     pub(crate) async fn update_search_ratelimit_data(&self, headers: &reqwest::header::HeaderMap) {
-        let Some(remaining) = headers.get("X-Rate-Limit-Remaining")
-            else { return; };
-        let Some(reset) = headers.get("X-Rate-Limit-Reset")
-            else { return; };
-        let Ok(remaining) = remaining.to_str() else { return; };
-        let Ok(remaining) = remaining.parse::<u32>() else { return; };
-        let Ok(reset) = reset.to_str() else { return; };
+        let Some(remaining) = headers.get("X-Rate-Limit-Remaining") else {
+            return;
+        };
+        let Some(reset) = headers.get("X-Rate-Limit-Reset") else {
+            return;
+        };
+        let Ok(remaining) = remaining.to_str() else {
+            return;
+        };
+        let Ok(remaining) = remaining.parse::<u32>() else {
+            return;
+        };
+        let Ok(reset) = reset.to_str() else {
+            return;
+        };
 
-        let Ok(reset) = reset.parse::<chrono::DateTime::<chrono::Utc>>()
-            else { return; };
+        let Ok(reset) = reset.parse::<chrono::DateTime<chrono::Utc>>() else {
+            return;
+        };
 
         let diff = reset - chrono::Utc::now();
 

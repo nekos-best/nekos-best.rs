@@ -53,9 +53,10 @@ macro_rules! gif_endpoints {
 }
 
 gif_endpoints!([
-    Angry, Baka, Bite, Blush, Bored, Cry, Cuddle, Dance, Facepalm, Feed, Handhold, Handshake, Happy,
-    Highfive, Hug, Kick, Kiss, Laugh, Lurk, Nod, Nom, Nope, Pat, Peck, Poke, Pout, Punch, Run, Shoot,
-    Shrug, Slap, Sleep, Smile, Smug, Stare, Think, ThumbsUp, Tickle, Wave, Wink, Yawn, Yeet
+    Angry, Baka, Bite, Blush, Bored, Cry, Cuddle, Dance, Facepalm, Feed, Handhold, Handshake,
+    Happy, Highfive, Hug, Kick, Kiss, Laugh, Lurk, Nod, Nom, Nope, Pat, Peck, Poke, Pout, Punch,
+    Run, Shoot, Shrug, Slap, Sleep, Smile, Smug, Stare, Think, ThumbsUp, Tickle, Wave, Wink, Yawn,
+    Yeet
 ]);
 
 macro_rules! image_endpoints {

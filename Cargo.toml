@@ -1,10 +1,10 @@
 [package]
 name = "nekosbest"
 description = "nekos.best API wrapper"
-version = "0.21.2"
+version = "0.21.3"
 edition = "2021"
 license = "CC0-1.0"
-repository = "https://github.com/dnbln/nb-rs"
+repository = "https://github.com/nekos-best/nekos-best.rs"
 readme = "README.md"
 include = ["/examples", "/tests", "/src", "/Cargo.toml", "/LICENSE", "/README.md", "/CHANGELOG.md"]
 
