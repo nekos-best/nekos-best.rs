@@ -2,7 +2,7 @@
 name = "nekosbest"
 description = "nekos.best API wrapper"
 version = "0.21.3"
-edition = "2021"
+edition = "2024"
 license = "CC0-1.0"
 repository = "https://github.com/nekos-best/nekos-best.rs"
 readme = "README.md"
@@ -40,7 +40,7 @@ version = "1"
 optional = true
 
 [dependencies.nb-blocking-util]
-version = "0.10.1"
+version = "0.10.2"
 optional = true
 path = "./nb-blocking-util"
 
@@ -97,3 +97,6 @@ required-features = ["metrics"]
 
 [workspace]
 members = ["nb-blocking-util"]
+
+[lints.rust]
+unexpected_cfgs = { level = "allow", check-cfg = ['cfg(nekosbest_dbgjson)'] }

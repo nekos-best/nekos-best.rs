@@ -2,7 +2,7 @@
 name = "nb-blocking-util"
 description = "Utility proc macro for removing all async/await from a function"
 version = "0.10.2"
-edition = "2021"
+edition = "2024"
 license = "CC0-1.0"
 repository = "https://github.com/nekos-best/nekos-best.rs"
 readme = "README.md"
