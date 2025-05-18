@@ -1,11 +1,11 @@
-use reqwest::header::HeaderMap;
 use reqwest::IntoUrl;
+use reqwest::header::HeaderMap;
 use serde::Serializer;
 use std::string::FromUtf8Error;
 
 use crate::{
+    BASE_URL, Category, NekosBestError, NekosBestResponse, NekosBestResponseSingle,
     details::{GifDetails, ImageDetails},
-    Category, NekosBestError, NekosBestResponse, NekosBestResponseSingle, BASE_URL,
 };
 
 #[cfg(feature = "blocking")]
@@ -245,7 +245,7 @@ pub async fn search_with_client(
     #[cfg(not(feature = "blocking"))]
     client.update_search_ratelimit_data(res.headers()).await;
 
-    Ok(parse_from_response(res).await?)
+    parse_from_response(res).await
 }
 
 #[deprecated(

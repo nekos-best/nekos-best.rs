@@ -124,9 +124,9 @@ impl TryFrom<String> for Category {
     }
 }
 
-impl Into<String> for Category {
-    fn into(self) -> String {
-        self.to_url_name().to_owned()
+impl From<Category> for String {
+    fn from(val: Category) -> Self {
+        val.to_url_name().to_owned()
     }
 }
 

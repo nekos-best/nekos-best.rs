@@ -1,3 +1,10 @@
+# 0.21.3
+
+Released: 2025-05-18
+
+- Move ownership to [@thunder04](https://github.com/nekos-best/nekos-best.rs), part of [nekos-best](https://github.com/nekos-best)'s GitHub organization.
+- Switch to 2024 Rust edition.
+
 # 0.21.2
 
 Released: 2025-03-17
