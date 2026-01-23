@@ -49,6 +49,7 @@ impl Details {
         }
     }
 
+    #[allow(clippy::result_large_err)]
     pub fn try_into_image(self) -> Result<ImageDetails, Self> {
         if let Self::Image(v) = self {
             Ok(v)
@@ -72,6 +73,7 @@ impl Details {
         }
     }
 
+    #[allow(clippy::result_large_err)]
     pub fn try_into_gif(self) -> Result<GifDetails, Self> {
         if let Self::Gif(v) = self {
             Ok(v)

@@ -56,15 +56,15 @@ impl Client {
 
     pub(crate) async fn handle_search_ratelimit(&self) -> Result<(), crate::NekosBestError> {
         let lock = self.search_ratelimit_data.lock().await;
-        if let Some(search_ratelimit_data) = &*lock {
-            if search_ratelimit_data.remaining == 0 {
-                match self.client_config.search_ratelimit_behavior {
-                    SearchRatelimitBehavior::Sleep => {
-                        tokio::time::sleep_until(search_ratelimit_data.resets_at).await;
-                    }
-                    SearchRatelimitBehavior::Error => {
-                        return Err(crate::NekosBestError::RateLimited);
-                    }
+        if let Some(search_ratelimit_data) = &*lock
+            && search_ratelimit_data.remaining == 0
+        {
+            match self.client_config.search_ratelimit_behavior {
+                SearchRatelimitBehavior::Sleep => {
+                    tokio::time::sleep_until(search_ratelimit_data.resets_at).await;
+                }
+                SearchRatelimitBehavior::Error => {
+                    return Err(crate::NekosBestError::RateLimited);
                 }
             }
         }
