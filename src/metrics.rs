@@ -1,7 +1,7 @@
 use std::str::FromStr;
 use std::{collections::HashMap, convert::TryFrom};
 
-use crate::{category::NoSuchVariant, Category, NekosBestError, BASE_URL};
+use crate::{BASE_URL, Category, NekosBestError, category::NoSuchVariant};
 
 #[derive(serde::Deserialize)]
 struct MetricsInternal {
@@ -82,7 +82,6 @@ pub struct Metrics {
 
 pub async fn get_metrics_with_client(client: &reqwest::Client) -> Result<Metrics, NekosBestError> {
     let resp = client.get(format!("{BASE_URL}/metrics")).send().await?;
-
     let metrics = resp.json::<Metrics>().await?;
 
     Ok(metrics)
