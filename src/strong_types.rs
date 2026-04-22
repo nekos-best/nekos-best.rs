@@ -8,8 +8,8 @@ use serde::Deserialize;
 
 use crate::client::ReqBuilder;
 use crate::{
-    details::{GifDetails, ImageDetails},
     Category,
+    details::{GifDetails, ImageDetails},
 };
 
 pub trait STCategory: Sized {
@@ -23,6 +23,13 @@ pub struct STNekosBestResponseSingle<C: STCategory> {
     pub url: String,
     #[serde(flatten)]
     pub details: C::Details,
+    pub dimensions: STNekosBestDimensions,
+}
+
+#[derive(Deserialize, Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+pub struct STNekosBestDimensions {
+    pub width: u32,
+    pub height: u32,
 }
 
 impl<C: STCategory> STNekosBestResponseSingle<C> {

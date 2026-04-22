@@ -55,6 +55,7 @@ pub struct NekosBestResponseSingle {
     /// The details
     #[serde(flatten)]
     pub details: Details,
+    pub dimensions: NekosBestDimensions,
 }
 
 impl Deref for NekosBestResponseSingle {
@@ -69,4 +70,11 @@ impl DerefMut for NekosBestResponseSingle {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.url
     }
+}
+
+/// The dimensions of an image or of a GIF
+#[derive(Debug, Clone, Hash, serde::Deserialize)]
+pub struct NekosBestDimensions {
+    pub width: u32,
+    pub height: u32,
 }
